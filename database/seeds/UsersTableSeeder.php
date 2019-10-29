@@ -13,20 +13,20 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-      $role_admin = Role::where('name,' 'admin')->first();
-      $role_user = Role::where('name,' 'user')->first();
+      $role_admin = Role::where('name', 'admin')->first();
+      $role_user = Role::where('name', 'user')->first();
 
       $admin = new User();
       $admin->name = 'Matthew Collins';
       $admin->email = 'admin@mattbookstore.ie';
-      $admin->password= bcrypt('secret');
+      $admin->password=bcrypt('secret');
       $admin->save();
       $admin->roles()-> attach($role_admin);
 
       $user = new User();
       $user->name = 'Luke Collins';
       $user->email = 'luke@mattbookstore.ie';
-      $user->password= bcrypt('secret');
+      $user->password=bcrypt('secret');
       $user->save();
       $user->roles()-> attach($role_user);
    }
